@@ -11,7 +11,7 @@
 ![Escalabilidad y Cloud](https://img.shields.io/badge/Infraestructura-Cloud%20%26%20Escalable-purple)
 
 ## Nombre del alumno: Guillermo Castellanos Rodriguez
-## Título del proyecto:
+## Título del proyecto: RetroHub
 
 ## Índice del proyecto
 
