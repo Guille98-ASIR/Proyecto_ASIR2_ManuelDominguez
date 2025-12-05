@@ -43,7 +43,77 @@ En cuanto a la protección de datos personales de los operadores del sistema, se
 
 **6. Guion inicial del proyecto**
 
+La ejecución técnica se divide en cinco fases secuenciales. La Fase 1 y 2 (Infraestructura) abordarán la instalación del servidor físico simulado con Linux (Ubuntu Server) aplicando cifrado de disco (LUKS) y redundancia RAID 1, seguido del bastionado del sistema operativo según guías CCN-CERT. A continuación, se desplegará el motor Docker y se segmentarán las redes virtuales para aislar el tráfico de gestión del tráfico de datos.
 
+La Fase 3 y 4 (Despliegue y Seguridad) se centrará en levantar los contenedores de la aplicación (Base de Datos PostgreSQL y Panel de Control) tras un Proxy Inverso Nginx con reglas estrictas de filtrado. Finalmente, la Fase 5 (Operaciones) implementará el sistema de copias de seguridad automatizadas (política 3-2-1) y la monitorización activa con alertas en tiempo real, concluyendo con una auditoría de seguridad para validar el cumplimiento del ENS antes del cierre del proyecto.
+B. Anexo Técnico: Desglose detallado, Costes y Mantenimiento
+
+Esto es lo que necesitas para trabajar y para rellenar los apartados económicos de tu proyecto (ideal para IPE II).
+1. Guion Paso a Paso (Roadmap)
+
+    Fase 0: Diseño de Arquitectura (Papel y Lápiz)
+
+        Diseñar topología de red: DMZ, LAN Interna, Red de Gestión.
+
+        Definir especificaciones del hardware virtual (vCPU, RAM, Disco).
+
+    Fase 1: El "Hierro" y el SO (ASO)
+
+        Crear Máquina Virtual (simulando servidor HP ProLiant).
+
+        Configurar 2 Discos Virtuales de 100GB.
+
+        Instalar Ubuntu Server 24.04 LTS.
+
+        Configurar RAID 1 (Software) durante la instalación (Espejo).
+
+        Hardening: Configurar SSH con llaves (sin password), instalar fail2ban, configurar UFW (Firewall) cerrando todo menos puerto 22.
+
+    Fase 2: El Motor de Contenedores (IAW)
+
+        Instalar Docker Engine y Docker Compose plugin.
+
+        Crear redes docker internas (docker network create gmv-internal).
+
+        Crear estructura de carpetas para volúmenes persistentes.
+
+    Fase 3: Los Servicios (ASGBD + SRI)
+
+        Redactar docker-compose.yml.
+
+        Servicio DB: PostgreSQL (optimizada para datos geoespaciales/telemetría).
+
+        Servicio App: Panel de monitorización (simulado con Grafana).
+
+        Servicio Web: Nginx como Proxy Inverso con certificados SSL (simulados o Let's Encrypt).
+
+    Fase 4: Seguridad y Resiliencia (SAD)
+
+        Script de Backup: Un script en Bash que haga pg_dump de la base de datos a las 3:00 AM, lo comprima y lo mueva a una carpeta segura.
+
+        Simulacro de fallo: Apagar un disco del RAID y ver si el servidor arranca. Borrar el contenedor de la base de datos y recuperarlo con el volumen.
+
+2. Análisis de Costes (Estimación para Proyecto Real)
+
+Al ser un proyecto "On-Premise" (servidor propio en GMV), no pagamos alquiler mensual a Amazon/Google, pero hay una inversión inicial fuerte (CAPEX).
+
+A. Costes de Implantación (CAPEX - Inversión Inicial)
+Concepto	Descripción	Coste Estimado (Real)	Coste en tu Proyecto
+Hardware Servidor	Servidor Dell PowerEdge / HP ProLiant (32GB RAM, Xeon, 2xSSD)	1.800 €	0 € (Virtualizado)
+Infraestructura Red	Firewall físico (Fortinet/Cisco) + SAI (Batería)	800 €	0 € (Simulado)
+Licencias Software	Linux, Docker, PostgreSQL, Grafana (Open Source)	0 €	0 €
+Mano de Obra (Tú)	60 horas de Técnico Superior ASIR (a 25€/hora coste empresa)	1.500 €	0 € (Es tu estudio)
+TOTAL INVERSIÓN		4.100 €	0 €
+
+B. Costes de Operación y Mantenimiento (OPEX - Mensual)
+Concepto	Descripción	Coste Mensual
+Consumo Eléctrico	Servidor 24/7 + Refrigeración (aprox. 50-80€ mes)	60 €
+Mantenimiento HW	Amortización de piezas (discos duros que fallan, etc.)	20 €
+Horas SysAdmin	4 horas/mes para actualizaciones de seguridad y revisión logs	100 €
+TOTAL MENSUAL		180 €
+3. Justificación Económica (El "gancho" del proyecto)
+
+    "La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado."
 
 ## Enlaces a recursos de la unidad
 
