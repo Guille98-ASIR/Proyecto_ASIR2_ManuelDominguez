@@ -51,13 +51,13 @@ B. Anexo Técnico: Desglose detallado, Costes y Mantenimiento
 Esto es lo que necesitas para trabajar y para rellenar los apartados económicos de tu proyecto (ideal para IPE II).
 1. Guion Paso a Paso (Roadmap)
 
-    Fase 0: Diseño de Arquitectura (Papel y Lápiz)
+    Fase 0: Diseño de Arquitectura
 
         Diseñar topología de red: DMZ, LAN Interna, Red de Gestión.
 
         Definir especificaciones del hardware virtual (vCPU, RAM, Disco).
 
-    Fase 1: El "Hierro" y el SO (ASO)
+    Fase 1: El "Hierro" y el SO
 
         Crear Máquina Virtual (simulando servidor HP ProLiant).
 
@@ -69,7 +69,7 @@ Esto es lo que necesitas para trabajar y para rellenar los apartados económicos
 
         Hardening: Configurar SSH con llaves (sin password), instalar fail2ban, configurar UFW (Firewall) cerrando todo menos puerto 22.
 
-    Fase 2: El Motor de Contenedores (IAW)
+    Fase 2: El Motor de Contenedores
 
         Instalar Docker Engine y Docker Compose plugin.
 
@@ -77,7 +77,7 @@ Esto es lo que necesitas para trabajar y para rellenar los apartados económicos
 
         Crear estructura de carpetas para volúmenes persistentes.
 
-    Fase 3: Los Servicios (ASGBD + SRI)
+    Fase 3: Los Servicios
 
         Redactar docker-compose.yml.
 
@@ -87,7 +87,7 @@ Esto es lo que necesitas para trabajar y para rellenar los apartados económicos
 
         Servicio Web: Nginx como Proxy Inverso con certificados SSL (simulados o Let's Encrypt).
 
-    Fase 4: Seguridad y Resiliencia (SAD)
+    Fase 4: Seguridad y Resiliencia
 
         Script de Backup: Un script en Bash que haga pg_dump de la base de datos a las 3:00 AM, lo comprima y lo mueva a una carpeta segura.
 
