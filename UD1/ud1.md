@@ -111,6 +111,7 @@ Consumo Eléctrico	Servidor 24/7 + Refrigeración (aprox. 50-80€ mes)	60 €
 Mantenimiento HW	Amortización de piezas (discos duros que fallan, etc.)	20 €
 Horas SysAdmin	4 horas/mes para actualizaciones de seguridad y revisión logs	100 €
 TOTAL MENSUAL		180 €
+
 3. Justificación Económica (El "gancho" del proyecto)
 
     "La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado."
