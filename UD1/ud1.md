@@ -99,20 +99,20 @@ Al ser un proyecto "On-Premise" (servidor propio en GMV), no pagamos alquiler me
 
 A. Costes de Implantación (CAPEX - Inversión Inicial)
 
-Concepto,Descripción,Coste Estimado (Real),Coste en tu Proyecto
-Hardware Servidor,"Servidor Dell PowerEdge / HP ProLiant (32GB RAM, Xeon, 2xSSD)",1.800 €,0 € (Virtualizado)
-Infraestructura Red,Firewall físico (Fortinet/Cisco) + SAI (Batería),800 €,0 € (Simulado)
-Licencias Software,"Linux, Docker, PostgreSQL, Grafana (Open Source)",0 €,0 €
-Mano de Obra (Tú),60 horas de Técnico Superior ASIR (a 25€/hora coste empresa),1.500 €,0 € (Es tu estudio)
-TOTAL INVERSIÓN,,4.100 €,0 €
+Concepto,Descripción Técnica,Coste Estimado (Mercado Real),Coste en tu Proyecto (Educativo)
+Hardware Servidor,"Servidor Rack (Dell PowerEdge / HP ProLiant) con 32GB RAM, Xeon, 2xSSD Enterprise.",1.800 €,0 € (Virtualizado)
+Infraestructura Red,Firewall físico perimetral (Fortinet/Cisco) + SAI (Batería de respaldo).,800 €,0 € (Simulado)
+Licencias Software,"Stack Open Source: Linux Ubuntu, Docker, PostgreSQL, Grafana.",0 €,0 €
+Mano de Obra,60 horas de Técnico Superior ASIR (Calculado a 25€/hora coste empresa).,1.500 €,0 € (Estudio propio)
+TOTAL INVERSIÓN,Total necesario para puesta en marcha,4.100 €,0 €
 
 B. Costes de Operación y Mantenimiento (OPEX - Mensual)
 
-Concepto,Descripción,Coste Mensual
-Consumo Eléctrico,Servidor 24/7 + Refrigeración (aprox. 50-80€ mes),60 €
-Mantenimiento HW,"Amortización de piezas (discos duros que fallan, etc.)",20 €
-Horas SysAdmin,4 horas/mes para actualizaciones de seguridad y revisión logs,100 €
-TOTAL MENSUAL,,180 €
+Concepto,Descripción del Gasto,Coste Mensual Estimado
+Consumo Eléctrico,Servidor encendido 24/7 + parte proporcional de climatización (CPD).,60 €
+Mantenimiento Hardware,"Amortización de piezas de repuesto (discos duros, fuentes de alimentación).",20 €
+Horas SysAdmin,"4 horas/mes dedicadas a actualizaciones de seguridad, parches y revisión de logs.",100 €
+TOTAL MENSUAL,Coste operativo recurrente,180 €
 
 3. Justificación Económica (El "gancho" del proyecto)
 
