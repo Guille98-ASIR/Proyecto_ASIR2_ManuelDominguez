@@ -19,27 +19,27 @@ Informes del SEPE y la Cámara de Comercio de Sevilla destacan que la "Industria
 
 **2. Selección de la empresa o contexto de trabajo**
 
-El proyecto se centra en Nexo Neural, una consultora tecnológica sevillana especializada en soluciones de Inteligencia Artificial y formación avanzada. Actualmente, la empresa requiere escalar sus operaciones para ofrecer entornos de entrenamiento de modelos seguros a sus clientes corporativos, sin depender exclusivamente de proveedores externos que comprometan la confidencialidad de los datos sensibles.
+El proyecto se contextualiza en la delegación de GMV en el PCT Cartuja (Sevilla), una multinacional tecnológica líder en sistemas de navegación por satélite, ciberseguridad y defensa. La necesidad detectada es la modernización de los sistemas internos de monitorización de incidencias críticas, que actualmente residen en servidores monolíticos (legacy) difíciles de escalar y mantener.
 
-El objetivo del proyecto es el diseño y despliegue de una infraestructura On-Premise (Servidor Local) optimizada para Inteligencia Artificial. Esta plataforma permitirá al equipo de Data Scientists de Nexo Neural desplegar, entrenar y monitorizar modelos de IA en un entorno controlado, aislado y gestionado íntegramente por el departamento de sistemas, garantizando la soberanía del dato y la eficiencia operativa.
+El objetivo es desplegar una nueva infraestructura On-Premise (Privada) basada en microservicios, aislada de internet y administrada por el departamento de sistemas. Esta plataforma permitirá a los operadores de GMV gestionar logs y alertas de seguridad en tiempo real, garantizando que la información sensible de sus clientes (gobiernos, agencias espaciales) permanezca bajo soberanía estricta y protegida mediante arquitectura de contenedores.
 
 **3. Identificación de necesidades tecnológicas**
 
-La infraestructura requiere un sistema operativo base Linux (ASO), preferiblemente Ubuntu Server, optimizado para gestionar drivers de GPU y contenedores. Sobre esta base se desplegará una arquitectura de microservicios con Docker (IAW) que alojará herramientas de gestión de modelos (como MLflow o JupyterHub) y dashboards internos, permitiendo a los desarrolladores trabajar sin tocar la configuración del servidor.
+Para cumplir con los estándares de "Misión Crítica" de GMV, se requiere un sistema operativo Linux (ASO) endurecido (Hardened), donde se eliminarán servicios innecesarios para reducir la superficie de ataque. Sobre este núcleo se desplegará una arquitectura Docker (IAW) que orquestará los servicios de la aplicación, separando la lógica de negocio de los datos para facilitar actualizaciones sin paradas de servicio.
 
-Para el manejo de grandes volúmenes de datos, se implementará un sistema gestor de bases de datos PostgreSQL o Vectorial (ASGBD) en alta disponibilidad. Todo el entorno estará protegido por una red privada con acceso vía VPN y Proxy Inverso (SRI), y blindado con medidas de Seguridad (SAD) como cortafuegos perimetrales y copias de seguridad inmutables para proteger la propiedad intelectual de los algoritmos.
+La gestión de datos recaerá sobre un clúster de bases de datos PostgreSQL o MariaDB (ASGBD) configurado para alta disponibilidad y tolerancia a fallos. Todo el tráfico de red será filtrado por un Firewall perimetral y un Proxy Inverso (SRI) con inspección de paquetes, y se implementarán protocolos de Seguridad (SAD) como copias de seguridad inmutables y autenticación de doble factor (2FA) para los administradores del sistema.
 
 **4. Oportunidades y viabilidad del proyecto**
 
-La oportunidad para Nexo Neural es estratégica: ofrecer a sus clientes "IA Soberana", garantizando que sus datos nunca salen de servidores controlados en España, un valor diferencial frente a la competencia que usa APIs públicas. La viabilidad técnica se sustenta en el uso de virtualización para simular los nodos de cómputo, permitiendo replicar una arquitectura de centro de datos real sin el coste prohibitivo del hardware de IA.
+La oportunidad radica en simular un entorno "Enterprise" real, demostrando la capacidad de implementar el Esquema Nacional de Seguridad (ENS) en una infraestructura técnica, algo muy valorado por empresas contratistas del Estado como GMV. La viabilidad técnica es total, utilizando virtualización para recrear la topología de red de un centro de datos de defensa sin coste de hardware.
 
-Económicamente, el proyecto maximiza la rentabilidad al utilizar un stack tecnológico 100% Open Source (Linux, Docker, PostgreSQL, Python), eliminando costes de licencias. Esto permite a la empresa ofrecer precios competitivos en sus servicios de consultoría y formación, manteniendo márgenes de beneficio altos al no depender de terceros.
+A nivel económico, el uso de herramientas Open Source (Linux, Docker, herramientas de monitorización como Prometheus/Grafana) garantiza la sostenibilidad del proyecto. Esto permite a GMV reducir la dependencia de licencias de software propietario en sus herramientas internas, alineándose con las estrategias de soberanía tecnológica europeas.
 
 **5. Obligaciones legales y normativas**
 
-El proyecto debe cumplir rigurosamente con el RGPD y la futura Ley de IA de la UE (AI Act), asegurando la trazabilidad y seguridad de los datos utilizados para entrenar los modelos. Se implementarán registros de actividad (logs), cifrado de datos en reposo y tránsito, y controles de acceso estrictos para garantizar que solo personal autorizado de Nexo Neural acceda a la información sensible.
+Dada la naturaleza de GMV (Defensa/Espacio), el proyecto se rige por el Esquema Nacional de Seguridad (ENS), aplicando las medidas de nivel medio/alto en cuanto a control de accesos, trazabilidad y recuperación ante desastres. Además, se cumple estrictamente con el RGPD para la protección de los datos de los empleados que operan el sistema y la normativa ISO 27001 sobre seguridad de la información.
 
-Asimismo, la plataforma cumplirá con la LSSI-CE en sus interfaces web internas y externas, y se alineará con los estándares de seguridad de la información (ISO 27001) recomendados por el INCIBE para empresas tecnológicas. Esto asegura que la infraestructura no solo sea funcional, sino legalmente robusta ante auditorías.
+En cuanto a la propiedad intelectual, todo el software y scripts de automatización desarrollados en el proyecto se consideran activos confidenciales de la empresa. Se implementarán avisos legales internos y políticas de uso aceptable conforme a la LSSI-CE y los convenios de confidencialidad (NDA) habituales en el sector aeroespacial.
 
 **6. Guion inicial del proyecto**
 
