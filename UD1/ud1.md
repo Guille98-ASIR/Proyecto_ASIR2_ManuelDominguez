@@ -48,7 +48,7 @@ La ejecución técnica se divide en cinco fases secuenciales. La Fase 1 y 2 (Inf
 La Fase 3 y 4 (Despliegue y Seguridad) se centrará en levantar los contenedores de la aplicación (Base de Datos PostgreSQL y Panel de Control) tras un Proxy Inverso Nginx con reglas estrictas de filtrado. Finalmente, la Fase 5 (Operaciones) implementará el sistema de copias de seguridad automatizadas (política 3-2-1) y la monitorización activa con alertas en tiempo real, concluyendo con una auditoría de seguridad para validar el cumplimiento del ENS antes del cierre del proyecto.
 B. Anexo Técnico: Desglose detallado, Costes y Mantenimiento
 
-Esto es lo que necesitas para trabajar y para rellenar los apartados económicos de tu proyecto (ideal para IPE II).
+Esto es lo que necesitas para trabajar y para rellenar los apartados económicos de tu proyecto.
 1. Guion Paso a Paso (Roadmap)
 
     Fase 0: Diseño de Arquitectura
