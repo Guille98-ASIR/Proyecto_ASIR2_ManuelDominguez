@@ -25,9 +25,9 @@ La necesidad detectada que justifica este proyecto es la modernización de los s
 
 **3. Identificación de necesidades tecnológicas**
 
-Para cumplir con los estándares militares y aeroespaciales de GMV, se requiere un sistema operativo base Linux (ASO) sometido a procesos de bastionado (Hardening), eliminando cualquier servicio no esencial para reducir la superficie de ataque. Sobre este núcleo seguro se desplegará una arquitectura de Docker (IAW) que orquestará los servicios de la aplicación de monitorización, garantizando que cada proceso (base de datos, panel web, alertas) corra en un contenedor aislado y efímero.
+Para cumplir con los estándares militares y aeroespaciales de GMV, se requiere un sistema operativo base Linux sometido a procesos de bastionado (Hardening), eliminando cualquier servicio no esencial para reducir la superficie de ataque. Sobre este núcleo seguro se desplegará una arquitectura de Docker que orquestará los servicios de la aplicación de monitorización, garantizando que cada proceso (base de datos, panel web, alertas) corra en un contenedor aislado y efímero.
 
-La gestión de los datos de telemetría y logs de seguridad se realizará mediante un clúster de bases de datos PostgreSQL (ASGBD) de alta disponibilidad. Todo el tráfico de red será inspeccionado por un Firewall de Nueva Generación y Proxy Inverso (SRI), y se implementarán mecanismos de Seguridad (SAD) avanzados como autenticación de doble factor (2FA) para los administradores y copias de seguridad inmutables frente a ransomware.
+La gestión de los datos de telemetría y logs de seguridad se realizará mediante un clúster de bases de datos PostgreSQL de alta disponibilidad. Todo el tráfico de red será inspeccionado por un Firewall de Nueva Generación y Proxy Inverso, y se implementarán mecanismos de Seguridad avanzados como autenticación de doble factor (2FA) para los administradores y copias de seguridad inmutables frente a ransomware.
 
 **4. Oportunidades y viabilidad del proyecto**
 
