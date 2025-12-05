@@ -41,6 +41,8 @@ El proyecto debe cumplir rigurosamente con el RGPD y la futura Ley de IA de la U
 
 Asimismo, la plataforma cumplirá con la LSSI-CE en sus interfaces web internas y externas, y se alineará con los estándares de seguridad de la información (ISO 27001) recomendados por el INCIBE para empresas tecnológicas. Esto asegura que la infraestructura no solo sea funcional, sino legalmente robusta ante auditorías.
 
+**6. Guion inicial del proyecto**
+
 
 
 ## Enlaces a recursos de la unidad
