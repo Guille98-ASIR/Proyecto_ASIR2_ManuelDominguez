@@ -118,42 +118,40 @@ Mantenimiento Hardware	Amortización de piezas de repuesto (discos duros, fuente
 Horas SysAdmin	4 horas/mes dedicadas a actualizaciones de seguridad, parches y revisión de logs.	100 €
 TOTAL MENSUAL	Coste operativo recurrente	180 €
 
-3. Justificación Económica (El "gancho" del proyecto)
+3. Justificación Económica
 
     "La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado."
 
 Enlaces a recursos de la unidad
 
-    Documentos de la unidad
+ Documentos de la unidad
 
-    Diagramas e imágenes
+ Diagramas e imágenes
 
 Bibliografía / Webgrafía
 
 Institucional y Mercado:
 
-    [Sevilla TechPark (PCT Cartuja)](https://sevillatechpark.es/)
+ [Sevilla TechPark (PCT Cartuja)](https://sevillatechpark.es/)
 
-    Buscador de empresas de Sevilla TechPark
+ [Buscador de empresas de Sevilla TechPark](https://sevillatechpark.es/empresas/)
 
-    Informe Q3 2025 de la Cámara de Comercio de Sevilla
+ [Informe Q3 2025 de la Cámara de Comercio de Sevilla](https://camaradesevilla.com/wp-content/uploads/2025/11/informe-q3-2025-definitivo.pdf)
 
-    Informe anual SEPE - Mercado de Trabajo
+ [Informe anual SEPE - Mercado de Trabajo](https://www.sepe.es/HomeSepe/que-es-observatorio/informes-anuales-mercado-trabajo-provincial-municipal/informes-provincia/ver-resultados.html?documentType=informes&tipo=9&ambito=Provincial&provincia=41)
 
-    INCIBE - Instituto Nacional de Ciberseguridad
+ [INCIBE - Instituto Nacional de Ciberseguridad](https://www.incibe.es/)
 
-    Web Corporativa de GMV
+ [Web Corporativa de GMV](https://www.gmv.com/es-es)
 
 Recursos Técnicos y Software Utilizado:
 
-    VirtualBox (Hipervisor)
+  [VirtualBox (Hipervisor)](https://www.virtualbox.org/)
 
-    Ubuntu Server Documentation
+  [Ubuntu Server Documentation](https://documentation.ubuntu.com/server/)
 
-    Docker & Docker Compose Docs
+  [Docker & Docker Compose Docs](https://docs.docker.com/)
 
-    Guías de Seguridad CCN-STIC (Hardening)
+  [Guías de Seguridad CCN-STIC (Hardening)](https://www.ccn-cert.cni.es/es/series-ccn-stic/guias/series-ccn-stic.html)
 
-    PostgreSQL Official Site
-
-
+  [PostgreSQL Official Site](https://www.postgresql.org/)
