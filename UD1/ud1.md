@@ -47,71 +47,77 @@ La ejecución técnica se divide en cinco fases secuenciales. La Fase 1 y 2 (Inf
 
 La Fase 3 y 4 (Despliegue y Seguridad) se centrará en levantar los contenedores de la aplicación (Base de Datos [PostgreSQL](https://www.postgresql.org/) y Panel de Control) tras un Proxy Inverso [Nginx](https://nginx.org/index.html) con reglas estrictas de filtrado. Finalmente, la Fase 5 (Operaciones) implementará el sistema de copias de seguridad automatizadas (política 3-2-1) y la monitorización activa con alertas en tiempo real, concluyendo con una auditoría de seguridad para validar el cumplimiento del [ENS](https://administracionelectronica.gob.es/pae_Home/pae_Estrategias/pae_Seguridad_Inicio/pae_Esquema_Nacional_de_Seguridad) antes del cierre del proyecto.
 
-B. Anexo Técnico: Desglose detallado, Costes y Mantenimiento
-
-Esto es lo que necesitas para trabajar y para rellenar los apartados económicos de tu proyecto.
 1. Guion Paso a Paso (Roadmap)
 
     Fase 0: Diseño de Arquitectura
 
-        Diseñar topología de red: DMZ, LAN Interna, Red de Gestión.
+    Diseñar topología de red: DMZ, LAN Interna, Red de Gestión.
 
-        Definir especificaciones del hardware virtual (vCPU, RAM, Disco).
+    Definir especificaciones del hardware virtual (vCPU, RAM, Disco).
 
-    Fase 1: El "Hierro" y el SO
+   ### Fase 1: El "Hierro" y el SO
 
-        Crear Máquina Virtual usando [VirtualBox](https://www.virtualbox.org/) (Hypervisor de Tipo 2 gratuito y Open Source).
+     Crear Máquina Virtual usando [VirtualBox](https://www.virtualbox.org/) (Hypervisor de Tipo 2 gratuito y Open Source).
 
-        Configurar 2 Discos Virtuales de 100GB (Simulación de bahías físicas).
+     Configurar 2 Discos Virtuales de 100GB (Simulación de bahías físicas).
 
-        Instalar [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server).
+     Instalar [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server).
 
-        Configurar RAID 1 (Software) durante la instalación (Espejo de discos).
+     Configurar RAID 1 (Software) durante la instalación (Espejo de discos).
 
-        Hardening: Configurar [OpenSSH](https://www.openssh.com/) con llaves (sin password), instalar [Fail2Ban](https://github.com/fail2ban/fail2ban), configurar [UFW](https://help.ubuntu.com/community/UFW) (Firewall) cerrando todo menos puerto 22.
+     Hardening: Configurar [OpenSSH](https://www.openssh.com/) con llaves (sin password), instalar [Fail2Ban](https://github.com/fail2ban/fail2ban), configurar [UFW](https://help.ubuntu.com/community/UFW) (Firewall) cerrando todo menos puerto 22.
 
-    Fase 2: El Motor de Contenedores
+   ### Fase 2: El Motor de Contenedores
 
-        Instalar [Docker Engine](https://docs.docker.com/engine/install/ubuntu/) y el plugin Docker Compose.
+      Instalar [Docker Engine](https://docs.docker.com/engine/install/ubuntu/) y el plugin Docker Compose.
 
-        Crear redes docker internas (docker network create gmv-internal).
+      Crear redes docker internas (docker network create gmv-internal).
 
-        Crear estructura de carpetas para volúmenes persistentes (Data persistence).
+      Crear estructura de carpetas para volúmenes persistentes (Data persistence).
 
-    Fase 3: Los Servicios
+   ### Fase 3: Los Servicios
 
-        Redactar el fichero docker-compose.yml.
+      Redactar el fichero docker-compose.yml.
 
-        Servicio DB: [PostgreSQL](https://hub.docker.com/_/postgres) (Imagen oficial optimizada para datos geoespaciales/telemetría).
+      Servicio DB: [PostgreSQL](https://hub.docker.com/_/postgres) (Imagen oficial optimizada para datos geoespaciales/telemetría).
 
-        Servicio App: Panel de monitorización simulado con [Grafana](https://grafana.com/oss/grafana/).
+      Servicio App: Panel de monitorización simulado con [Grafana](https://grafana.com/oss/grafana/).
 
-        Servicio Web: [Nginx](https://hub.docker.com/_/nginx) como Proxy Inverso con certificados SSL (simulados o [Let's Encrypt](https://letsencrypt.org/es/)).
+      Servicio Web: [Nginx](https://hub.docker.com/_/nginx) como Proxy Inverso con certificados SSL (simulados o [Let's Encrypt](https://letsencrypt.org/es/)).
 
-    Fase 4: Seguridad y Resiliencia
+   ### Fase 4: Seguridad y Resiliencia
 
-        Script de Backup: Un script en Bash que haga pg_dump de la base de datos a las 3:00 AM, lo comprima con tar/gzip y lo mueva a una carpeta segura.
+      Script de Backup: Un script en Bash que haga pg_dump de la base de datos a las 3:00 AM, lo comprima con tar/gzip y lo mueva a una carpeta segura.
 
-        Simulacro de fallo: Apagar un disco virtual del RAID en VirtualBox y verificar arranque. Borrar el contenedor de la base de datos y recuperarlo con el volumen.
+     Simulacro de fallo: Apagar un disco virtual del RAID en VirtualBox y verificar arranque. Borrar el contenedor de la base de datos y recuperarlo con el volumen.
 
 2. Análisis de Costes (Estimación para Proyecto Real)
 
 Al ser un proyecto "On-Premise" (servidor propio en GMV), no pagamos alquiler mensual a Amazon/Google, pero hay una inversión inicial fuerte (CAPEX).
 
 A. Costes de Implantación (CAPEX - Inversión Inicial)
+
 Concepto	Descripción Técnica	Coste Estimado (Mercado Real)	Coste en tu Proyecto (Educativo)
-Hardware Servidor	Servidor Rack ([Dell PowerEdge](https://www.dell.com/es-es/shop/scc/sc/servers) / HP ProLiant) con 32GB RAM, Xeon, 2xSSD Enterprise.	1.800 €	0 € (Virtualizado)
-Infraestructura Red	Firewall físico perimetral ([Fortinet](https://www.fortinet.com/)/Cisco) + SAI (Batería de respaldo).	800 €	0 € (Simulado)
-Licencias Software	Stack Open Source: Linux Ubuntu, Docker, PostgreSQL, Grafana.	0 €	0 €
-Mano de Obra	60 horas de Técnico Superior ASIR (Calculado a 25€/hora coste empresa).	1.500 €	0 € (Estudio propio)
-TOTAL INVERSIÓN	Total necesario para puesta en marcha	4.100 €	0 €
+
+Hardware Servidor	Servidor Rack ([Dell PowerEdge](https://www.dell.com/es-es/shop/scc/sc/servers) / HP ProLiant) con 32GB RAM, Xeon, 2xSSD Enterprise.	1.800 €
+
+Infraestructura Red	Firewall físico perimetral ([Fortinet](https://www.fortinet.com/)/Cisco) + SAI (Batería de respaldo).	800 €
+
+Licencias Software	Stack Open Source: Linux Ubuntu, Docker, PostgreSQL, Grafana.	0 €
+
+Mano de Obra	60 horas de Técnico Superior ASIR (Calculado a 25€/hora coste empresa).	1.500 €	
+
+TOTAL INVERSIÓN	Total necesario para puesta en marcha	4.100 €	
 
 B. Costes de Operación y Mantenimiento (OPEX - Mensual)
+
 Concepto	Descripción del Gasto	Coste Mensual Estimado
+
 Consumo Eléctrico	Servidor encendido 24/7 + parte proporcional de climatización (CPD).	60 €
 Mantenimiento Hardware	Amortización de piezas de repuesto (discos duros, fuentes de alimentación).	20 €
 Horas SysAdmin	4 horas/mes dedicadas a actualizaciones de seguridad, parches y revisión de logs.	100 €
 TOTAL MENSUAL	Coste operativo recurrente	180 €
+
 3. Justificación Económica (El "gancho" del proyecto)
 
     "La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado."
