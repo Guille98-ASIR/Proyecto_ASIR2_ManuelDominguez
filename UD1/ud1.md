@@ -47,49 +47,49 @@ La ejecución técnica se divide en cinco fases secuenciales. La Fase 1 y 2 (Inf
 
 La Fase 3 y 4 (Despliegue y Seguridad) se centrará en levantar los contenedores de la aplicación (Base de Datos [PostgreSQL](https://www.postgresql.org/) y Panel de Control) tras un Proxy Inverso [Nginx](https://nginx.org/index.html) con reglas estrictas de filtrado. Finalmente, la Fase 5 (Operaciones) implementará el sistema de copias de seguridad automatizadas (política 3-2-1) y la monitorización activa con alertas en tiempo real, concluyendo con una auditoría de seguridad para validar el cumplimiento del [ENS](https://administracionelectronica.gob.es/pae_Home/pae_Estrategias/pae_Seguridad_Inicio/pae_Esquema_Nacional_de_Seguridad) antes del cierre del proyecto.
 
-1. Guion Paso a Paso (Roadmap)
+**1. Guion Paso a Paso (Roadmap)**
 
-    Fase 0: Diseño de Arquitectura
+Fase 0: Diseño de Arquitectura
+ 
+Diseñar topología de red: DMZ, LAN Interna, Red de Gestión.
 
-    Diseñar topología de red: DMZ, LAN Interna, Red de Gestión.
+Definir especificaciones del hardware virtual (vCPU, RAM, Disco).
 
-    Definir especificaciones del hardware virtual (vCPU, RAM, Disco).
+### Fase 1: El "Hierro" y el SO
 
-   ### Fase 1: El "Hierro" y el SO
+Crear Máquina Virtual usando [VirtualBox](https://www.virtualbox.org/) (Hypervisor de Tipo 2 gratuito y Open Source).
 
-     Crear Máquina Virtual usando [VirtualBox](https://www.virtualbox.org/) (Hypervisor de Tipo 2 gratuito y Open Source).
+Configurar 2 Discos Virtuales de 100GB (Simulación de bahías físicas).
 
-     Configurar 2 Discos Virtuales de 100GB (Simulación de bahías físicas).
+Instalar [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server).
 
-     Instalar [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server).
+Configurar RAID 1 (Software) durante la instalación (Espejo de discos).
 
-     Configurar RAID 1 (Software) durante la instalación (Espejo de discos).
+Hardening: Configurar [OpenSSH](https://www.openssh.com/) con llaves (sin password), instalar [Fail2Ban](https://github.com/fail2ban/fail2ban), configurar [UFW](https://help.ubuntu.com/community/UFW) (Firewall) cerrando todo menos puerto 22.
 
-     Hardening: Configurar [OpenSSH](https://www.openssh.com/) con llaves (sin password), instalar [Fail2Ban](https://github.com/fail2ban/fail2ban), configurar [UFW](https://help.ubuntu.com/community/UFW) (Firewall) cerrando todo menos puerto 22.
+### Fase 2: El Motor de Contenedores
 
-   ### Fase 2: El Motor de Contenedores
+Instalar [Docker Engine](https://docs.docker.com/engine/install/ubuntu/) y el plugin Docker Compose.
 
-      Instalar [Docker Engine](https://docs.docker.com/engine/install/ubuntu/) y el plugin Docker Compose.
+Crear redes docker internas (docker network create gmv-internal).
 
-      Crear redes docker internas (docker network create gmv-internal).
+Crear estructura de carpetas para volúmenes persistentes (Data persistence).
 
-      Crear estructura de carpetas para volúmenes persistentes (Data persistence).
+### Fase 3: Los Servicios
 
-   ### Fase 3: Los Servicios
+Redactar el fichero docker-compose.yml.
 
-      Redactar el fichero docker-compose.yml.
+Servicio DB: [PostgreSQL](https://hub.docker.com/_/postgres) (Imagen oficial optimizada para datos geoespaciales/telemetría).
 
-      Servicio DB: [PostgreSQL](https://hub.docker.com/_/postgres) (Imagen oficial optimizada para datos geoespaciales/telemetría).
+Servicio App: Panel de monitorización simulado con [Grafana](https://grafana.com/oss/grafana/).
 
-      Servicio App: Panel de monitorización simulado con [Grafana](https://grafana.com/oss/grafana/).
+Servicio Web: [Nginx](https://hub.docker.com/_/nginx) como Proxy Inverso con certificados SSL (simulados o [Let's Encrypt](https://letsencrypt.org/es/)).
 
-      Servicio Web: [Nginx](https://hub.docker.com/_/nginx) como Proxy Inverso con certificados SSL (simulados o [Let's Encrypt](https://letsencrypt.org/es/)).
+### Fase 4: Seguridad y Resiliencia
 
-   ### Fase 4: Seguridad y Resiliencia
+Script de Backup: Un script en Bash que haga pg_dump de la base de datos a las 3:00 AM, lo comprima con tar/gzip y lo mueva a una carpeta segura.
 
-      Script de Backup: Un script en Bash que haga pg_dump de la base de datos a las 3:00 AM, lo comprima con tar/gzip y lo mueva a una carpeta segura.
-
-     Simulacro de fallo: Apagar un disco virtual del RAID en VirtualBox y verificar arranque. Borrar el contenedor de la base de datos y recuperarlo con el volumen.
+Simulacro de fallo: Apagar un disco virtual del RAID en VirtualBox y verificar arranque. Borrar el contenedor de la base de datos y recuperarlo con el volumen.
 
 2. Análisis de Costes (Estimación para Proyecto Real)
 
@@ -120,38 +120,38 @@ TOTAL MENSUAL	Coste operativo recurrente	180 €
 
 3. Justificación Económica
 
-    "La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado."
+"La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado."
 
 **Enlaces a recursos de la unidad**
 
- [Documentos de la unidad](/UD1/documentos)
+[Documentos de la unidad](/UD1/documentos)
 
- [Diagramas e imágenes](/UD1/img)
+[Diagramas e imágenes](/UD1/img)
 
 **Bibliografía / Webgrafía**
 
 **Institucional y Mercado:**
 
- [Sevilla TechPark (PCT Cartuja)](https://sevillatechpark.es/)
+[Sevilla TechPark (PCT Cartuja)](https://sevillatechpark.es/)
 
- [Buscador de empresas de Sevilla TechPark](https://sevillatechpark.es/empresas/)
+[Buscador de empresas de Sevilla TechPark](https://sevillatechpark.es/empresas/)
 
- [Informe Q3 2025 de la Cámara de Comercio de Sevilla](https://camaradesevilla.com/wp-content/uploads/2025/11/informe-q3-2025-definitivo.pdf)
+[Informe Q3 2025 de la Cámara de Comercio de Sevilla](https://camaradesevilla.com/wp-content/uploads/2025/11/informe-q3-2025-definitivo.pdf)
 
- [Informe anual SEPE - Mercado de Trabajo](https://www.sepe.es/HomeSepe/que-es-observatorio/informes-anuales-mercado-trabajo-provincial-municipal/informes-provincia/ver-resultados.html?documentType=informes&tipo=9&ambito=Provincial&provincia=41)
+[Informe anual SEPE - Mercado de Trabajo](https://www.sepe.es/HomeSepe/que-es-observatorio/informes-anuales-mercado-trabajo-provincial-municipal/informes-provincia/ver-resultados.html?documentType=informes&tipo=9&ambito=Provincial&provincia=41)
 
- [INCIBE - Instituto Nacional de Ciberseguridad](https://www.incibe.es/)
+[INCIBE - Instituto Nacional de Ciberseguridad](https://www.incibe.es/)
 
- [Web Corporativa de GMV](https://www.gmv.com/es-es)
+[Web Corporativa de GMV](https://www.gmv.com/es-es)
 
 **Recursos Técnicos y Software Utilizado:**
 
-  [VirtualBox (Hipervisor)](https://www.virtualbox.org/)
+[VirtualBox (Hipervisor)](https://www.virtualbox.org/)
 
-  [Ubuntu Server Documentation](https://documentation.ubuntu.com/server/)
+[Ubuntu Server Documentation](https://documentation.ubuntu.com/server/)
 
-  [Docker & Docker Compose Docs](https://docs.docker.com/)
+[Docker & Docker Compose Docs](https://docs.docker.com/)
 
-  [Guías de Seguridad CCN-STIC (Hardening)](https://www.ccn-cert.cni.es/es/series-ccn-stic/guias/series-ccn-stic.html)
+[Guías de Seguridad CCN-STIC (Hardening)](https://www.ccn-cert.cni.es/es/series-ccn-stic/guias/series-ccn-stic.html)
 
-  [PostgreSQL Official Site](https://www.postgresql.org/)
+[PostgreSQL Official Site](https://www.postgresql.org/)
