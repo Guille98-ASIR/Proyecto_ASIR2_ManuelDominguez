@@ -122,15 +122,15 @@ TOTAL MENSUAL	Coste operativo recurrente	180 €
 
     "La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado."
 
-Enlaces a recursos de la unidad
+**Enlaces a recursos de la unidad**
 
- Documentos de la unidad
+ [Documentos de la unidad](/UD1/documentos)
 
- Diagramas e imágenes
+ [Diagramas e imágenes](/UD1/img)
 
-Bibliografía / Webgrafía
+**Bibliografía / Webgrafía**
 
-Institucional y Mercado:
+**Institucional y Mercado:**
 
  [Sevilla TechPark (PCT Cartuja)](https://sevillatechpark.es/)
 
@@ -144,7 +144,7 @@ Institucional y Mercado:
 
  [Web Corporativa de GMV](https://www.gmv.com/es-es)
 
-Recursos Técnicos y Software Utilizado:
+**Recursos Técnicos y Software Utilizado:**
 
   [VirtualBox (Hipervisor)](https://www.virtualbox.org/)
 
