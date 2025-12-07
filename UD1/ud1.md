@@ -23,6 +23,8 @@ El proyecto se desarrolla en la delegación de GMV en el PCT Cartuja (Sevilla), 
 
 La necesidad detectada que justifica este proyecto es la modernización de los sistemas internos de monitorización de satélites y ciberseguridad ("Ground Segment"). Actualmente, se requiere migrar servicios monolíticos antiguos a una nueva infraestructura On-Premise (Privada) basada en microservicios aislados. El objetivo es que el departamento de sistemas recupere el control total de los datos sensibles, garantizando la soberanía de la información sin depender de nubes públicas externas.
 
+![gmv](gmv.jpg)
+
 # **3. Identificación de necesidades tecnológicas**
 
 Para cumplir con los estándares militares y aeroespaciales de GMV, se requiere un sistema operativo base Linux sometido a procesos de bastionado (Hardening), eliminando cualquier servicio no esencial para reducir la superficie de ataque. Sobre este núcleo seguro se desplegará una arquitectura de Docker que orquestará los servicios de la aplicación de monitorización, garantizando que cada proceso (base de datos, panel web, alertas) corra en un contenedor aislado y efímero.
@@ -46,6 +48,8 @@ En cuanto a la protección de datos personales de los operadores del sistema, se
 La ejecución técnica se divide en cinco fases secuenciales. La Fase 1 y 2 (Infraestructura) abordarán la instalación del servidor físico simulado con [Ubuntu Server](https://ubuntu.com/server) aplicando cifrado de disco ([LUKS](https://gitlab.com/cryptsetup/cryptsetup)) y redundancia RAID 1, seguido del bastionado del sistema operativo según las guías del [CCN-CERT](https://www.ccn-cert.cni.es/es/series-ccn-stic/guias/series-ccn-stic.html). A continuación, se desplegará el motor [Docker](https://www.docker.com/) y se segmentarán las redes virtuales para aislar el tráfico de gestión del tráfico de datos.
 
 La Fase 3 y 4 (Despliegue y Seguridad) se centrará en levantar los contenedores de la aplicación (Base de Datos [PostgreSQL](https://www.postgresql.org/) y Panel de Control) tras un Proxy Inverso [Nginx](https://nginx.org/index.html) con reglas estrictas de filtrado. Finalmente, la Fase 5 (Operaciones) implementará el sistema de copias de seguridad automatizadas (política 3-2-1) y la monitorización activa con alertas en tiempo real, concluyendo con una auditoría de seguridad para validar el cumplimiento del [ENS](https://administracionelectronica.gob.es/pae_Home/pae_Estrategias/pae_Seguridad_Inicio/pae_Esquema_Nacional_de_Seguridad) antes del cierre del proyecto.
+
+![diagrama](/UD1/img/diagrama.jpg)
 
 **1. Guion Paso a Paso (Roadmap)**
 
@@ -97,7 +101,7 @@ Simulacro de fallo: Apagar un disco virtual del RAID en VirtualBox y verificar a
 
 **3. Justificación Económica**
 
-"La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado."
+La elección de tecnologías Open Source (Docker, Linux, PostgreSQL) permite a GMV ahorrar aproximadamente 15.000 € anuales en licencias (comparado con usar Windows Server + SQL Server + VMware). Además, al ser infraestructura propia, se evita el coste variable de la nube, que suele dispararse con el tráfico de datos masivo, garantizando un coste predecible y controlado.
 
 **Enlaces a recursos de la unidad**
 
