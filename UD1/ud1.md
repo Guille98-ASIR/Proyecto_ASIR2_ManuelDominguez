@@ -131,8 +131,18 @@ TOTAL MENSUAL,Coste operativo recurrente,180 €
 - [Documentos de la unidad](./documentos/)
 - [Diagramas e imágenes](./img/)
 
-  ## Bibliografía / Webgrafía 
-- Autor1, Título del libro o artículo, Editorial/Año.
-- Sitio web oficial: [Enlace](https://www.ejemplo.com)
-- Tutoriales y guías recomendadas: [Enlace](https://www.ejemplo2.com)
+  ## Bibliografía / Webgrafía
+  
+-[Sevilla TechPark](https://sevillatechpark.es/)
+
+-[Buscador de empresas de Sevilla TechPark](https://sevillatechpark.es/empresas/)
+
+-[Informe Q3 2025 de la camara de comercio de Sevilla](https://camaradesevilla.com/wp-content/uploads/2025/11/informe-q3-2025-definitivo.pdf)
+
+-[Informe anual SEPE](https://www.sepe.es/HomeSepe/que-es-observatorio/informes-anuales-mercado-trabajo-provincial-municipal/informes-provincia/ver-resultados.html?documentType=informes&tipo=9&ambito=Provincial&provincia=41)
+
+-[Incibe](https://www.incibe.es/)
+
+
+-
 
