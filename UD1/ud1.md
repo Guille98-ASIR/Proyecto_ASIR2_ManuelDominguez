@@ -23,7 +23,7 @@ El proyecto se desarrolla en la delegación de GMV en el PCT Cartuja (Sevilla), 
 
 La necesidad detectada que justifica este proyecto es la modernización de los sistemas internos de monitorización de satélites y ciberseguridad ("Ground Segment"). Actualmente, se requiere migrar servicios monolíticos antiguos a una nueva infraestructura On-Premise (Privada) basada en microservicios aislados. El objetivo es que el departamento de sistemas recupere el control total de los datos sensibles, garantizando la soberanía de la información sin depender de nubes públicas externas.
 
-![gmv](gmv.jpg)
+![gmv](/UD1/img/gmv.jpg)
 
 # **3. Identificación de necesidades tecnológicas**
 
