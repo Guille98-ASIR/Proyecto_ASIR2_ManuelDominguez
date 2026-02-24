@@ -107,14 +107,35 @@ Al priorizar soluciones Cloud Native de código abierto, se elimina por completo
 | Base de Datos | MariaDB | 0 € | MS SQL Server | > 1.000 € | 
 | **TOTAL SOFTWARE** | | **0 €** | | **> 4.100 €** | 
 
-## 5 Documentación técnica
+## 5 Documentación técnica (Sistemas y Aplicaciones)
 
-Para asegurar el mantenimiento futuro y la escalabilidad de la infraestructura, se generarán los siguientes documentos técnicos (Anexos):
+Para la correcta implementación, mantenimiento y escalabilidad de la infraestructura, este proyecto se apoya rigurosamente en la documentación técnica oficial de los sistemas y aplicaciones Open Source desplegados:
 
-1. Esquema de Red y VPN: Configuración de reglas NAT en pfSense y generación de pares de claves para clientes WireGuard.
-2. Manifiestos de Kubernetes: Repositorio con los archivos .yaml (Deployments, Services, Ingress, PVCs) para recrear toda la infraestructura de gestión en minutos.
-3. Guía de Integración LDAP: Parámetros de conexión para enlazar GLPI y RomM contra el directorio activo OpenLDAP.
-4. Manual de Operador de Taller: Procedimiento estándar para la creación de tickets y volcados de seguridad en el NAS.
+1. **Sistemas Operativos Base:**
+   * **Debian / Linux:** Documentación oficial para la administración del sistema operativo host (https://www.debian.org/doc/).
+   * **FreeBSD:** Manual del sistema operativo base utilizado por los servidores pfSense y TrueNAS (https://docs.freebsd.org/en/books/handbook/).
+
+2. **Seguridad Perimetral y VPN:**
+   * **pfSense:** Documentación oficial de Netgate para enrutamiento, NAT y reglas de firewall (https://docs.netgate.com/pfsense/).
+   * **WireGuard:** Manual técnico del protocolo y configuración de túneles cifrados (https://www.wireguard.com/quickstart/).
+
+3. **Infraestructura, Almacenamiento y Contenedores:**
+   * **K3s (Kubernetes):** Referencia técnica de Rancher para el despliegue del clúster ligero, Ingress y volúmenes (https://docs.k3s.io/).
+   * **Podman:** Documentación para la gestión de contenedores rootless, utilizado en el servidor web de la DMZ (https://docs.podman.io/).
+   * **TrueNAS:** Documentación para la gestión de pools ZFS, datasets y compartición NFS/SMB (https://www.truenas.com/docs/).
+
+4. **Bases de Datos e Identidad:**
+   * **OpenLDAP:** Guía de administración para la gestión centralizada del árbol de usuarios (https://www.openldap.org/doc/).
+   * **MariaDB:** Base de conocimiento y guías de despliegue de bases de datos relacionales (https://mariadb.com/kb/en/documentation/).
+   * **Redis:** Documentación oficial del motor de base de datos en memoria para caché y gestión de sesiones (https://redis.io/docs/).
+
+5. **Gestión, Monitorización y Entorno Web:**
+   * **GLPI:** Documentación oficial para la administración de activos IT y Service Desk (https://glpi-project.org/documentation/).
+   * **Uptime Kuma:** Repositorio y wiki oficial para la configuración de alertas y monitorización de servicios (https://github.com/louislam/uptime-kuma).
+   * **Nginx:** Documentación técnica del servidor web y proxy inverso (https://nginx.org/en/docs/).
+
+6. **Preservación de Videojuegos:**
+   * **RomM (Rom Manager):** Wiki de configuración e instalación Bare Metal (https://github.com/RomM-app/RomM).
 
 ## Enlaces a recursos de la unidad
 
